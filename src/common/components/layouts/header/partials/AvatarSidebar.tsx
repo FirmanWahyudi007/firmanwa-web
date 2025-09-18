@@ -6,6 +6,8 @@ import {
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { Skeleton } from '@/components/ui/skeleton';
+import cn from '@/lib/cn';
+import clsx from 'clsx';
 
 interface AvatarSidebarProps {
   shouldShowSkeleton?: boolean;
@@ -16,24 +18,33 @@ const AvatarSidebar = ({ shouldShowSkeleton = false }: AvatarSidebarProps) => {
       <SidebarMenu className='border-0'>
         <SidebarMenuItem>
           <SidebarMenuButton className='h-auto flex-col gap-3 rounded-lg px-0 py-2 hover:bg-gray-100'>
-            {shouldShowSkeleton ? (
-              <Skeleton className='h-20 w-20 rounded-full' />
-            ) : (
-              <>
-                <Avatar className='h-20 w-20'>
-                  <AvatarImage
-                    src='https://github.com/shadcn.png'
-                    className='rounded-lg'
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-              </>
-            )}
+            <div
+              className={clsx(
+                'overflow-hidden',
+                shouldShowSkeleton ? 'animate-pulse' : ''
+              )}
+            >
+              <Avatar className='h-20 w-20'>
+                <AvatarImage
+                  src='/images/firmanwa.jpeg'
+                  className={cn(
+                    'duration-700 ease-in-out',
+                    shouldShowSkeleton
+                      ? 'scale-[1.02] blur-xl grayscale'
+                      : 'scale-100 blur-0 grayscale-0',
+                    'rounded-lg'
+                  )}
+                />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            </div>
             <div className='text-center text-sm leading-tight'>
               {shouldShowSkeleton ? (
                 <Skeleton className='h-4 w-20' />
               ) : (
-                <span className='truncate font-bold'>Firman Wahyudi</span>
+                <span className='truncate text-lg font-bold'>
+                  Firman Wahyudi
+                </span>
               )}
             </div>
           </SidebarMenuButton>

@@ -1,12 +1,16 @@
-export default function Home() {
+import Container from '@/common/components/elements/Container';
+import Home from '@/modules/home';
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+  title: 'Firman Wahyudi - Personal Website',
+  description: 'Welcome to my personal website',
+};
+export default function HomePage() {
   return (
     <>
-      <div className='container flex flex-col items-center justify-center min-h-screen p-4 mx-auto'>
-        <h1 className='mb-4 text-2xl font-bold'>Welcome to Next.js!</h1>
-        <h1 className='mb-4 text-2xl font-bold'>Welcome to Next.js!</h1>
-        <h1 className='mb-4 text-2xl font-bold'>Welcome to Next.js!</h1>
-        <h1 className='mb-4 text-2xl font-bold'>Welcome to Next.js!</h1>
-      </div>
+      <Container data-aos='fade-up'>
+        <Home />
+      </Container>
     </>
   );
 }

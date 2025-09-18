@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { HeaderSidebar } from './header/HeaderSidebar';
 import { cookies } from 'next/headers';
+import AosProvider from '@/providers/AosProvider';
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,6 +15,7 @@ const Layout = async ({ children }: LayoutProps) => {
   return (
     <>
       <div>
+        <AosProvider />
         <SidebarProvider defaultOpen={defaultOpen}>
           <HeaderSidebar />
           <main className={clsx('min-h-screen', 'transition-all')}>

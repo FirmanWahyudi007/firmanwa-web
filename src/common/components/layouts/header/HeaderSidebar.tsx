@@ -13,27 +13,19 @@ import {
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import AvatarSidebar from './AvatarSidebar';
+import AvatarSidebar from './partials/AvatarSidebar';
 import { MENU_ITEMS } from '@/common/constant/menu';
+import useLoading from '@/hooks/useLoading';
+import useHasMounted from '@/hooks/useHasMounted';
 
 export function HeaderSidebar() {
   const pathname = usePathname();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isMounted, setIsMounted] = useState(false);
+  const isLoading = useLoading();
+  const isHasMounted = useHasMounted();
   const menu = MENU_ITEMS;
 
-  useEffect(() => {
-    setIsMounted(true);
-    // Simulasi loading time
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // 1.5 detik loading
-
-    return () => clearTimeout(timer);
-  }, []);
-
   // Prevent hydration mismatch - always render same structure
-  const shouldShowSkeleton = isMounted && isLoading;
+  const shouldShowSkeleton = isHasMounted && isLoading;
 
   return (
     <Sidebar className='lg:w-60'>
