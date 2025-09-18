@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 import AvatarSidebar from './partials/AvatarSidebar';
 import { MENU_ITEMS } from '@/common/constant/menu';
 import useLoading from '@/hooks/useLoading';
