@@ -19,13 +19,12 @@ import useHasMounted from '@/hooks/useHasMounted';
 
 export function HeaderSidebar() {
   const pathname = usePathname();
-  const isLoading = useLoading();
-  const isHasMounted = useHasMounted();
   const menu = MENU_ITEMS;
+  const isLoading = useLoading();
+  const isMounted = useHasMounted();
 
   // Prevent hydration mismatch - always render same structure
-  const shouldShowSkeleton = isHasMounted && isLoading;
-
+  const shouldShowSkeleton = isMounted && isLoading;
   return (
     <Sidebar className='lg:w-60'>
       <AvatarSidebar shouldShowSkeleton={shouldShowSkeleton} />
@@ -43,7 +42,7 @@ export function HeaderSidebar() {
                         href={item.href}
                         aria-label={item.title}
                         className={`flex items-center font-light gap-3 ${
-                          pathname === item.href
+                          shouldShowSkeleton && pathname === item.href
                             ? 'text-black  bg-neutral-200 hover:bg-neutral-400'
                             : 'text-gray-600  hover:text-gray-900'
                         }`}

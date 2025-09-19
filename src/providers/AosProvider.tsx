@@ -1,24 +1,27 @@
+// src/providers/AosProvider.tsx
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useLoading from '@/hooks/useLoading';
-import useHasMounted from '@/hooks/useHasMounted';
 
 export default function AosProvider() {
   const isLoading = useLoading();
-  const isHasMounted = useHasMounted();
+  const [mounted, setMounted] = useState(false);
 
-  const shouldInitAOS = isHasMounted && isLoading;
   useEffect(() => {
-    if (shouldInitAOS) {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (mounted && !isLoading) {
       AOS.init({
         duration: 1000,
         once: true,
         mirror: false,
       });
     }
-  }, [shouldInitAOS]);
+  }, [isLoading, mounted]);
 
   return null;
 }

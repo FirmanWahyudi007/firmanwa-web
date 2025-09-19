@@ -1,9 +1,11 @@
+import Container from '@/common/components/elements/Container';
+
 export default function Projects() {
   return (
     <>
-      <div className='container flex flex-col items-center justify-center min-h-screen p-4 mx-auto'>
+      <Container data-aos='fade-up'>
         <h1 className='mb-4 text-2xl font-bold'>Projects Page</h1>
-      </div>
+      </Container>
     </>
   );
 }

@@ -1,9 +1,11 @@
-import Router from 'next/router';
+// src/components/ProgressBar.tsx
+'use client';
+import { useEffect } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 import NProgress from 'nprogress';
-import { FC } from 'react';
-
 import 'nprogress/nprogress.css';
 
+// Configure NProgress
 NProgress.configure({
   minimum: 0.3,
   easing: 'ease',
@@ -11,12 +13,22 @@ NProgress.configure({
   showSpinner: false,
 });
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+export default function ProgressBar() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-const ProgressBar: FC = () => {
+  useEffect(() => {
+    NProgress.start();
+
+    const timer = setTimeout(() => {
+      NProgress.done();
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      NProgress.done();
+    };
+  }, [pathname, searchParams]);
+
   return null;
-};
-
-export default ProgressBar;
+}

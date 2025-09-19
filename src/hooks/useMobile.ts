@@ -1,13 +1,27 @@
-import { useEffect, useState } from 'react';
-import { useWindowSize } from 'usehooks-ts';
+// hooks/useMobile.ts
+import { useState, useEffect } from 'react';
 
-export function useIsMobile() {
-  const { width } = useWindowSize();
-  const [isMobile, setIsMobile] = useState(width < 769);
+export const useIsMobile = (breakpoint: number = 1024) => {
+  const [isMobile, setIsMobile] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsMobile(width < 821);
-  }, [width]);
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < breakpoint);
+    };
 
-  return isMobile;
-}
+    // Set hydrated to true after first render
+    setIsHydrated(true);
+
+    // Initial check
+    checkIsMobile();
+
+    // Listen for resize events
+    window.addEventListener('resize', checkIsMobile);
+
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, [breakpoint]);
+
+  // Return false during SSR and before hydration to prevent mismatch
+  return isHydrated ? isMobile : false;
+};

@@ -3,9 +3,9 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Layout from '@/common/components/layouts';
+import ProgressBar from '@/common/components/elements/ProgressBar';
 
 const inter = Inter({
-  variable: '--font-inter',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -22,8 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${inter.variable} antialiased`}>
-        <Layout>{children}</Layout>
+      <body className={`${inter.className} antialiased`}>
+        <Layout>
+          <ProgressBar />
+          {children}
+        </Layout>
         <SpeedInsights />
       </body>
     </html>
