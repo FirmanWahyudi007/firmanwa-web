@@ -1,9 +1,8 @@
 // src/common/components/layouts/ClientWrapper.tsx
 'use client';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { ReactNode, useState, useEffect } from 'react';
+import { ReactNode } from 'react';
 import { HeaderSidebar } from './header/HeaderSidebar';
-import { useIsMobile } from '@/hooks/useMobile';
 import BottomNavigation from './footer/BottomNavigation';
 
 interface ClientWrapperProps {
@@ -12,25 +11,22 @@ interface ClientWrapperProps {
 }
 
 const ClientWrapper = ({ children, initialOpen }: ClientWrapperProps) => {
-  const isMobile = useIsMobile();
-  const [isHydrated, setIsHydrated] = useState(false);
-
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
-
-  // Render the same structure on server and client initially
-  // Only show responsive behavior after hydration
-  const shouldShow = isHydrated ? !isMobile : true;
-
   return (
     <SidebarProvider defaultOpen={initialOpen}>
-      {shouldShow && <HeaderSidebar />}
-      <main className='min-h-screen transition-all'>
-        {shouldShow && <SidebarTrigger />}
+      <div className='hidden md:block'>
+        <HeaderSidebar />
+      </div>
+
+      <main className='min-h-screen transition-all pb-16 lg:pb-0'>
+        <div className='hidden md:block'>
+          <SidebarTrigger />
+        </div>
         {children}
       </main>
-      {!shouldShow && <BottomNavigation />}
+
+      <div className='block md:hidden'>
+        <BottomNavigation />
+      </div>
     </SidebarProvider>
   );
 };
