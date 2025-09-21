@@ -40,7 +40,7 @@ const AvatarSidebar = ({ shouldShowSkeleton = false }: AvatarSidebarProps) => {
             </div>
             <div className='text-center text-sm leading-tight'>
               {shouldShowSkeleton ? (
-                <Skeleton className='h-4 w-20' />
+                <Skeleton className='h-4 w-30 bg-gray-400 animate-pulse' />
               ) : (
                 <span className='truncate text-lg font-bold'>
                   Firman Wahyudi
