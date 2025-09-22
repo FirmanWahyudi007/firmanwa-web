@@ -27,6 +27,8 @@ const AvatarSidebar = ({ shouldShowSkeleton = false }: AvatarSidebarProps) => {
               <Avatar className='h-20 w-20'>
                 <AvatarImage
                   src='/images/firmanwa.jpeg'
+                  loading='lazy'
+                  alt='Firman Wahyudi'
                   className={cn(
                     'duration-700 ease-in-out',
                     shouldShowSkeleton

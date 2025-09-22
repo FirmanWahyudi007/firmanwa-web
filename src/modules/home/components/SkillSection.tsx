@@ -1,5 +1,5 @@
 import SectionHeading from '@/common/components/elements/SectionHeading';
-import Skills from '../partials/Skills';
+import Skills from './Skills';
 
 const SkillsSection = () => {
   return (

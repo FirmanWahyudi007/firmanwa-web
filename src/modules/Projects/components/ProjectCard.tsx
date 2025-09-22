@@ -36,6 +36,7 @@ const ProjectCard = ({
         <Image
           src={image}
           alt={title}
+          loading='lazy'
           fill
           className='object-contain group-hover:scale-105 transition-transform duration-300'
         />
