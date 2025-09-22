@@ -76,7 +76,7 @@ export const PROJECT_ITEMS: ProjectItemProps[] = [
     slug: 'school-inventory-lending-system',
     description:
       'A school inventory lending app that streamlines item requests, approvals, and returns.',
-    image: '/images/projects/2.png',
+    image: '/images/projects/4.png',
     link_demo: undefined,
     link_github:
       'https://github.com/FirmanWahyudi007/Aplikasi-Simpan-Pinjam-Inventaris-Sekolah',

@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, GitBranch } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProjectItemProps } from '@/common/types/projects';
@@ -92,7 +92,7 @@ const ProjectCard = ({
         {repo_url && (
           <Button asChild size='sm' variant='outline' className='flex-1'>
             <Link href={repo_url} target='_blank'>
-              <Github className='w-4 h-4 mr-1' />
+              <GitBranch className='w-4 h-4 mr-1' />
               Code
             </Link>
           </Button>
