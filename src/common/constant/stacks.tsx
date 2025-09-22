@@ -1,5 +1,6 @@
 import { JSX } from 'react';
 import {
+  SiBootstrap,
   SiExpress,
   SiGo,
   SiJavascript,
@@ -17,7 +18,6 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  SiVite,
 } from 'react-icons/si';
 
 export type stacksProps = {
@@ -42,7 +42,7 @@ export const STACKS: stacksProps = {
   'Next.js': <SiNextdotjs size={iconSize} />,
   'React.js': <SiReact size={iconSize} className='text-sky-500' />,
   TailwindCSS: <SiTailwindcss size={iconSize} className='text-cyan-300' />,
-  Vite: <SiVite size={iconSize} className='text-purple-500' />,
+  Bootstrap: <SiBootstrap size={iconSize} className='text-purple-500' />,
   Redux: <SiRedux size={iconSize} className='text-purple-500' />,
   Jquery: <SiJquery size={iconSize} />,
 };

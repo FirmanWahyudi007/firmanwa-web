@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Container data-aos='fade-up'>
+      <Container data-aos='fade-up' className='lg:w-[70vw]'>
         <Home />
       </Container>
     </>
