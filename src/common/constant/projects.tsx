@@ -51,7 +51,7 @@ export const PROJECT_ITEMS: ProjectItemProps[] = [
     image: '/images/projects/siperang.png',
     link_demo: 'https://siperang.politanikoe.ac.id',
     link_github: undefined,
-    stacks: 'Laravel, PHP, MySQL, TailwindCSS',
+    stacks: 'Laravel, PHP, PostgreSQL, TailwindCSS',
     content:
       'Streamlines proposal submission, review, and approval while keeping records consistent and exportable. Built to improve transparency and reduce revision cycles.',
     is_show: true,
