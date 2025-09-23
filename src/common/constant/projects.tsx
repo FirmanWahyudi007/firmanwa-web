@@ -30,6 +30,34 @@ export const PROJECT_ITEMS: ProjectItemProps[] = [
     is_featured: false,
   },
   {
+    title: 'Transfer Academy — English Course',
+    slug: 'transfer-academy-english-course',
+    description:
+      'An English course institution established in 2023 under PT Pratama Transsoftware Inti Bahasa, providing structured programs with a focus on clear outcomes and learner progress.',
+    image: '/images/projects/transferakademi.png',
+    link_demo: 'https://www.transferakademi.id',
+    link_github: undefined,
+    stacks: 'Laravel, PHP, MySQL, Bootstrap',
+    content:
+      'Positioned as a modern English course brand founded in 2023, emphasizing practical communication, clear curriculum levels, and measurable learning progress.',
+    is_show: true,
+    is_featured: false,
+  },
+  {
+    title: 'SIPERANG — Budget Planning System',
+    slug: 'siperang-budget-planning',
+    description:
+      'Transparent budget planning with clear workflows, approvals, and auditable records for academic units.',
+    image: '/images/projects/siperang.png',
+    link_demo: 'https://siperang.politanikoe.ac.id',
+    link_github: undefined,
+    stacks: 'Laravel, PHP, MySQL, TailwindCSS',
+    content:
+      'Streamlines proposal submission, review, and approval while keeping records consistent and exportable. Built to improve transparency and reduce revision cycles.',
+    is_show: true,
+    is_featured: false,
+  },
+  {
     title: 'AGROS Frontend Mini Test',
     slug: 'agros-frontend-mini-test',
     description:
