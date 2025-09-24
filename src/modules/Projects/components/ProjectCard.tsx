@@ -1,4 +1,5 @@
 // src/modules/Projects/components/ProjectCard.tsx
+'use client';
 import {
   Card,
   CardDescription,
@@ -18,6 +19,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
+import cn from '@/lib/cn';
+import useLoading from '@/hooks/useLoading';
 
 const ProjectCard = ({
   title,
@@ -28,17 +31,27 @@ const ProjectCard = ({
   link_demo: demo_url,
   link_github: repo_url,
 }: ProjectItemProps) => {
+  const isLoading = useLoading();
   const stacksArray = stacks.split(',').map((stack) => stack.trim());
   return (
     <Card className='group h-full flex flex-col overflow-hidden hover:shadow-lg transition-all duration-300'>
       {/* Project Image */}
-      <div className='relative h-48 overflow-hidden'>
+      <div
+        className={cn(
+          'relative h-48 overflow-hidden bg-white',
+          'transition-all duration-700 ease-in-out',
+          isLoading
+            ? 'scale-105 blur-sm grayscale '
+            : 'scale-100 blur-0 grayscale-0',
+          'group-hover:scale-[1.02]'
+        )}
+      >
         <Image
           src={image}
           alt={title}
           loading='lazy'
           fill
-          className='object-contain group-hover:scale-105 transition-transform duration-300'
+          className='object-contain group-hover:scale-105'
         />
         {is_featured && (
           <Badge className='absolute top-2 right-2 bg-primary'>Featured</Badge>
