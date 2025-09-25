@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'A simple introduction—because meaningful details build the bigger picture.',
 };
-export default function Projects() {
+export default function AboutPage() {
   return (
     <>
       <Container data-aos='fade-up' className='lg:w-[70vw]'>

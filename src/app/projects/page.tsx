@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'A showcase of my projects and works, both private and open-source.',
 };
-export default function Projects() {
+export default function ProjectPage() {
   return (
     <>
       <Container data-aos='fade-up' className='lg:w-[70vw]'>
