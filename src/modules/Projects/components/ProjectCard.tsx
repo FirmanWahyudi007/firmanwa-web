@@ -74,7 +74,7 @@ const ProjectCard = ({
       </div>
 
       <CardHeader className='pb-3'>
-        <CardTitle className='line-clamp-1'>{title}</CardTitle>
+        <CardTitle className='my-2'>{title}</CardTitle>
         <CardDescription className='line-clamp-4'>
           {description}
         </CardDescription>
