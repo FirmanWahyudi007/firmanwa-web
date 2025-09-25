@@ -56,19 +56,16 @@ const ProjectCard = ({
         {is_featured && (
           <Badge className='absolute top-2 right-2 bg-primary'>Featured</Badge>
         )}
-        <div className='absolute bottom-2 left-2'>
+        <div className='absolute space-x-1 bottom-2 left-2'>
           {stacksArray.map((stack: string, index: number) => (
-            <Badge
-              key={index}
-              className='bg-primary opacity-50 hover:opacity-100 m-1 rounded-full'
-            >
-              <Tooltip delayDuration={100}>
-                <TooltipTrigger className='m-1'>
-                  <span className=''>{STACKS[stack]}</span>
-                </TooltipTrigger>
-                <TooltipContent>{stack}</TooltipContent>
-              </Tooltip>
-            </Badge>
+            <Tooltip delayDuration={100} key={index}>
+              <TooltipTrigger className=''>
+                <Badge className='bg-primary opacity-50 hover:opacity-100 p-0 flex justify-center items-center rounded-full !h-10 !w-10'>
+                  <span className='shrink-0'>{STACKS[stack]}</span>
+                </Badge>
+              </TooltipTrigger>
+              <TooltipContent>{stack}</TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </div>

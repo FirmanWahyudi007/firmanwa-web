@@ -15,8 +15,6 @@ const GoogleDocsEmbed: React.FC<GoogleDocsEmbedProps> = ({
       title='Google Docs Viewer'
       width={width}
       height={height}
-      frameBorder='0'
-      scrolling='no'
     >
       This browser does not support embedding Google Docs. Please use a
       compatible browser.
