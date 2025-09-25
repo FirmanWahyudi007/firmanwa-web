@@ -2,12 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { TabsContent } from '@/components/ui/tabs';
 import cn from '@/lib/cn';
 import { GraduationCap } from 'lucide-react';
+import { EDUCATION_ITEMS } from '@/common/constant/education';
+import EducationCard from './EducationCard';
 
 interface EducationProps {
   tabs: string;
 }
 
 const Education = ({ tabs }: EducationProps) => {
+  const educations = EDUCATION_ITEMS;
   return (
     <TabsContent
       value='education'
@@ -31,14 +34,10 @@ const Education = ({ tabs }: EducationProps) => {
             My educational journey and academic achievements.
           </p>
 
-          {/* Add more content here */}
           <div className='space-y-4'>
-            <div className='border rounded-lg p-4'>
-              <h4 className='font-semibold'>University</h4>
-              <p className='text-sm text-muted-foreground'>
-                Education details here...
-              </p>
-            </div>
+            {educations.map((education, index) => (
+              <EducationCard key={index} {...education} />
+            ))}
           </div>
         </motion.div>
       </AnimatePresence>
