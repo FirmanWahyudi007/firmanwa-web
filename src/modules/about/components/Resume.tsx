@@ -41,10 +41,7 @@ const Resume = ({ tabs }: ResumeProps) => {
             </Link>
           </Button>
 
-          {/* Remove overflow-hidden to let content dictate height */}
-          <div className='w-full'>
-            <GoogleDocsEmbed src={RESUME_URL} />
-          </div>
+          <GoogleDocsEmbed src={RESUME_URL} />
         </motion.div>
       </AnimatePresence>
     </TabsContent>

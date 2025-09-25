@@ -1,11 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { TabsContent } from '@/components/ui/tabs';
 import { Briefcase } from 'lucide-react';
+import { CAREER_ITEMS } from '@/common/constant/career';
+import CareerCard from './CareerCard';
 
 interface CareerProps {
   tabs: string;
 }
 const Career = ({ tabs }: CareerProps) => {
+  const careers = CAREER_ITEMS;
   return (
     <TabsContent
       value='career'
@@ -29,12 +32,9 @@ const Career = ({ tabs }: CareerProps) => {
 
           {/* Add more content here */}
           <div className='space-y-4'>
-            <div className='border rounded-lg p-4'>
-              <h4 className='font-semibold'>Current Position</h4>
-              <p className='text-sm text-muted-foreground'>
-                Job details here...
-              </p>
-            </div>
+            {careers.map((career, index) => (
+              <CareerCard key={index} {...career} />
+            ))}
           </div>
         </motion.div>
       </AnimatePresence>
