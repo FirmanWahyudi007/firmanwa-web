@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import Layout from '@/common/components/layouts';
 import ProgressBar from '@/common/components/elements/ProgressBar';
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           {children}
         </Layout>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
